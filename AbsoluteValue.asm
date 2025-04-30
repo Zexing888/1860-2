@@ -39,6 +39,7 @@ M=D
 //The following code of the space is to check whether x = -32768 and the value of R3
 //D= NOT RAM[R0]
 @R0
+D=M
 D=!D
 //D = NOT RAM[R0] + 1
 D=D+1
