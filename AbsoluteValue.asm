@@ -29,9 +29,10 @@ D;JMP
 //RAM[R2] = 1
 @R2
 M=1
-//D= NOT RAM[R0]
+//D= the negative value of RAM[R0]
 @R0
 D=!M
+D=D+1
 //RAM[R1] = D = NOT RAM[R0]
 @R1
 M=D
@@ -40,12 +41,12 @@ M=D
 //D= NOT RAM[R0]
 @R0
 D=M
-@32768
-D=D+A
+D=!D
+D=D+1
 
-//if D = 0, jump to CHECK
+//if D < 0, jump to CHECK
 @CHECK
-D;JEQ
+D;JLT
 //RAM[R3] = 0
 @R3
 M=0
