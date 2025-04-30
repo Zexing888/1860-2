@@ -40,12 +40,12 @@ M=D
 //D= NOT RAM[R0]
 @R0
 D=M
-D=!D
-//D = NOT RAM[R0] + 1
-D=D+1
-//if D < 0, jump to CHECK
+@32768
+D=D+A
+
+//if D = 0, jump to CHECK
 @CHECK
-D;JLT
+D;JEQ
 //RAM[R3] = 0
 @R3
 M=0
