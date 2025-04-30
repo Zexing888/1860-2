@@ -31,13 +31,14 @@ D;JMP
 M=1
 //D= the negative value of RAM[R0]
 @R0
-D=!M
-D=D+1
-//RAM[R1] = D = NOT RAM[R0]
+D=!M //D = -RAM[R0]
+D=D+1 
+//RAM[R1] = D = the negative value of RAM[R0]
 @R1
 M=D
 
 //The following code of the space is to check whether x = -32768 and the value of R3
+//When x = -32768, This value is still -32768 after calculate. Not 32768
 //D= NOT RAM[R0]
 @R0
 D=M
